@@ -13,6 +13,7 @@ function App() {
   const [modal, setModal] =useState<boolean>(false)
   const [editName, setEditName] = useState<string>("")
   const [taskId, setTaskId] = useState<number>(0)
+  const [priority, setPriority] = useState<string>("")
 
   function handleSubmitForm(e: any): void{
     e.preventDefault()
@@ -36,9 +37,9 @@ function App() {
             <input className='task-form__input' value={nameTask} onChange={(e) => setNameTask(e.currentTarget.value)} type="text" aria-label="Adicione o nome de sua tarefa"/>
             <fieldset className="task-form__priority">
                 <legend className="task-form__priority-legend">Prioridade Tarefa</legend>
-                <label htmlFor="urgente"><input type="radio" name="prioridade" id="urgente" value="urgente" onChange={(e) => console.log(e.currentTarget.value)} className="task-form__priority-input task-form__priority-input--urgente"/>Urgente</label>
-                <label htmlFor="importante"><input type="radio" name="prioridade" id="importante" value="importante" onChange={(e) => console.log(e.currentTarget.value)} className="task-form__priority-input task-form__priority-input--importante"/>Importante</label>  
-                <label htmlFor="rotineira"><input type="radio" name="prioridade" id="rotineira" value="rotineira" onChange={(e) => console.log(e.currentTarget.value)} className="task-form__priority-input task-form__priority-input--rotineira"/>Rotineira</label>
+                <label htmlFor="urgente"><input type="radio" name="prioridade" id="urgente" value="urgente" onChange={(e) => setPriority(e.currentTarget.value)} className="task-form__priority-input task-form__priority-input--urgente"/>Urgente</label>
+                <label htmlFor="importante"><input type="radio" name="prioridade" id="importante" value="importante" onChange={(e) => setPriority(e.currentTarget.value)} className="task-form__priority-input task-form__priority-input--importante"/>Importante</label>  
+                <label htmlFor="rotineira"><input type="radio" name="prioridade" id="rotineira" value="rotineira" onChange={(e) => setPriority(e.currentTarget.value)} className="task-form__priority-input task-form__priority-input--rotineira"/>Rotineira</label>
             </fieldset>
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
       </form>
