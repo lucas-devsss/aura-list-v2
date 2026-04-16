@@ -1,10 +1,7 @@
 import { useState } from 'react'
 import './App.css'
+import type { Task } from './types/taskType'
 
-interface Task{
-  id: number,
-  name: string
-}
 
 
 function App() {
