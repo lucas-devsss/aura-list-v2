@@ -1,4 +1,6 @@
-function FormTask({handleSubmitForm, nameTask, handleSaveNameTask}: {handleSubmitForm(e: any): void, nameTask: string, handleSaveNameTask(e: string): void}){
+import type React from "react"
+
+function FormTask({handleSubmitForm, nameTask, handleSaveNameTask}: {handleSubmitForm(e: React.SubmitEvent): void, nameTask: string, handleSaveNameTask(e: string): void}){
     return(
     <form className="task-form" onSubmit={(e) =>{
         handleSubmitForm(e)
