@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import './App.css'
 import type { Task } from './types/taskType'
-import RenderTasks from './components/renderTasks'
+import RenderTasks from './components/RenderTasks'
+import FormTask from './components/FormTask'
 
 function App() {
   const [nameTask, setNameTask] = useState<string>("")
@@ -48,18 +49,7 @@ function App() {
 
   return (
     <>
-  
-
-    <form className="task-form" onSubmit={handleSubmitForm}>
-            <input className='task-form__input' value={nameTask} onChange={(e) => setNameTask(e.currentTarget.value)} type="text" aria-label="Adicione o nome de sua tarefa"/>
-            <fieldset className="task-form__priority">
-                <legend className="task-form__priority-legend">Prioridade Tarefa</legend>
-                <label htmlFor="urgente"><input type="radio" name="prioridade" id="urgente" value="urgente"  className="task-form__priority-input task-form__priority-input--urgente"/>Urgente</label>
-                <label htmlFor="importante"><input type="radio" name="prioridade" id="importante" value="importante"  className="task-form__priority-input task-form__priority-input--importante"/>Importante</label>  
-                <label htmlFor="rotineira"><input type="radio" name="prioridade" id="rotineira" value="rotineira"  className="task-form__priority-input task-form__priority-input--rotineira"/>Rotineira</label>
-            </fieldset>
-            <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
-      </form>
+    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask}/>
 
     <RenderTasks tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}/>
   </>
