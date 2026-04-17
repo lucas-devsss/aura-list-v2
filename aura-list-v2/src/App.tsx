@@ -9,15 +9,16 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [modal, setModal] =useState<boolean>(false)
   const [taskEdit, setTaskEdit] = useState<Task | null> (null)
-  const [taskDifficulty, setTaskDifficulty] = useState<string>("")
+  const [taskDifficulty, setTaskDifficulty] = useState<"easy" | "medium" | "hard">("easy")
 
   function handleSubmitForm(e: React.SubmitEvent): void{
     e.preventDefault()
     if(nameTask === ""){
       return
     }
-    setTasks(e => [...e, {id: tasks.length + 1, name: nameTask}])
+    setTasks(e => [...e, {id: tasks.length + 1, name: nameTask, difficulty: taskDifficulty}])
     setNameTask("")
+    console.log(taskDifficulty)
   }
 
   function handleDeleteTask(id: number): void{
@@ -25,13 +26,13 @@ function App() {
     setModal(false)
   }
 
-  function handleEditTask(idTask: number, nameTask: string): void{
-    setTaskEdit({id: idTask, name: nameTask})
+  function handleEditTask(idTask: number, nameTask: string, difficulty: "easy" | "medium" | "hard"): void{
+    setTaskEdit({id: idTask, name: nameTask, difficulty: difficulty})
     setModal(true)
   }
 
   function handleChangeTask(nameTask: string): void{
-    setTaskEdit({id: taskEdit!.id, name: nameTask})
+    setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: taskEdit!.difficulty})
   }
 
   function handleUpdateTasks(tasks: Task[]){
@@ -47,14 +48,14 @@ function App() {
     setNameTask(e)
   }
 
-  function handleSaveDifficulty(e: string): void{
+  function handleSaveDifficulty(e: "easy" | "medium" | "hard"): void{
     setTaskDifficulty(e)
   }
 
   return (
     <>
-    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask} handleSaveDifficulty={handleSaveDifficulty} taskDifficulty={taskDifficulty}/>
-    <RenderTasks tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal} />
+    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask} handleSaveDifficulty={handleSaveDifficulty}/>
+    <RenderTasks tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0, difficulty: taskEdit?.difficulty ?? "easy"}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal} />
   </>
   )
 }
