@@ -9,7 +9,7 @@ function App() {
   const [tasks, setTasks] = useState<Task[]>([])
   const [modal, setModal] =useState<boolean>(false)
   const [taskEdit, setTaskEdit] = useState<Task | null> (null)
- 
+  const [taskDifficulty, setTaskDifficulty] = useState<string>("")
 
   function handleSubmitForm(e: React.SubmitEvent): void{
     e.preventDefault()
@@ -46,11 +46,15 @@ function App() {
   function handleSaveNameTask(e: string){
     setNameTask(e)
   }
-  
+
+  function handleSaveDifficulty(e: string): void{
+    setTaskDifficulty(e)
+  }
+
   return (
     <>
-    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask}/>
-    <RenderTasks tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}/>
+    <FormTask handleSubmitForm={handleSubmitForm} nameTask={nameTask} handleSaveNameTask={handleSaveNameTask} handleSaveDifficulty={handleSaveDifficulty} taskDifficulty={taskDifficulty}/>
+    <RenderTasks tasks={tasks} handleDeleteTask={handleDeleteTask} modal={modal} handleEditTask={handleEditTask} editTask={{name: taskEdit?.name ?? "", id: taskEdit?.id ?? 0}} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal} />
   </>
   )
 }
