@@ -1,4 +1,4 @@
-import React, {useState } from 'react'
+import {useState } from 'react'
 import './App.css'
 import type { Task } from './types/taskType'
 import RenderTasks from './components/RenderTasks'
@@ -15,8 +15,7 @@ function App() {
 
 
 
-  function handleSubmitForm(e: React.SubmitEvent): void{
-    e.preventDefault()
+  function handleSubmitForm(): void{
     if(nameTask === ""){
       return
     }

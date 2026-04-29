@@ -1,10 +1,8 @@
-import type React from "react"
-
-function FormTask({handleSubmitForm, nameTask, handleSaveNameTask, handleSaveDifficulty}: {handleSubmitForm(e: React.SubmitEvent): void, nameTask: string, handleSaveNameTask(e: string): void, handleSaveDifficulty(e: string): void}){
+function FormTask({handleSubmitForm, nameTask, handleSaveNameTask, handleSaveDifficulty}: {handleSubmitForm(): void, nameTask: string, handleSaveNameTask(e: string): void, handleSaveDifficulty(e: string): void}){
     return(
     <form className="task-form" onSubmit={(e) =>{
-        handleSubmitForm(e)
-        
+        e.preventDefault()
+        handleSubmitForm()
     }}>
         <label htmlFor="task-form__input">Adicione sua tarefa</label>
             <input className='task-form__input' id="task-form__input" value={nameTask} onChange={(e) => handleSaveNameTask(e.currentTarget.value)} type="text" aria-label="Adicione o nome de sua tarefa"/>
