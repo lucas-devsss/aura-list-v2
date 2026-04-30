@@ -1,10 +1,10 @@
 export interface Task{
   id: number,
   name: string,
-  difficulty: difficulty
+  difficulty: Difficulty
 }
 
-type difficulty = "easy" | "medium" | "hard"
+export type Difficulty = "easy" | "medium" | "hard"
 
 export const difficultyWeight = {
   hard: 3,
