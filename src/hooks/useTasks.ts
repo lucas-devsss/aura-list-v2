@@ -1,7 +1,7 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import type { Task, Difficulty } from "../types/taskType"
 import { difficultyWeight } from "../types/taskType"
-
+import { saveLocalStorage } from "../storage/taskStorage"
 export function useTasks(){
     const [nameTask, setNameTask] = useState<string>("")
     const [tasks, setTasks] = useState<Task[]>([])
@@ -9,6 +9,11 @@ export function useTasks(){
     const [taskEdit, setTaskEdit] = useState<Task | null> (null)
     const [taskDifficulty, setTaskDifficulty] = useState<Difficulty>("easy")
     
+    useEffect(() =>{
+      saveLocalStorage("tasks", tasks)
+    }, [tasks])
+
+
       function handleSubmitForm(): void{
         if(nameTask === ""){
           return
