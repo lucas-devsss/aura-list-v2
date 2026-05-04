@@ -1,10 +1,10 @@
-
+import styles from "./FormTask.module.css"
 
 function FormTask({handleSubmitForm, nameTask, handleSaveNameTask, handleSaveDifficulty}: {handleSubmitForm(): void, nameTask: string, handleSaveNameTask(e: string): void, handleSaveDifficulty(e: string): void}){
     return(
         <>
         <header>
-            <h1>Aplicação Tarefas</h1>
+            <h1 className={styles.title}>Aplicação Tarefas</h1>
         </header>
 
     <form className="task-form" onSubmit={(e) =>{
