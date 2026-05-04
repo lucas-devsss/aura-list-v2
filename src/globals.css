@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+/*
+    GLOBAL VARIABLES
+*/
+
+/* -------------------
+   RESET
+   ------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html, body{
+  margin: 0;
+  padding: 0;
+}
+
+html{
+  font-size: 62.5%;
+}
+
+body {
+  font-size: 1.6rem;
+  font-family: var(--font-family);
+  background-color: var(--bg-page);
+}
+
+/* -------------------
+   BRUTTE PALETTE
+   ------------------- */
+:root {
+  /* Neutrals */
+  --color-black: #05060A;
+  --color-card: #1A1A1A;
+  --color-card-hover: #1E1A2E;
+  --color-grey-dark: #1F1F1E;
+  --color-grey-light: #4A4A4A;
+  --color-white: #FFFFFF;
+  --color-white-75: rgba(255, 255, 255, 0.75);
+  --color-white-50: rgba(255, 255, 255, 0.50);
+  --color-white-40: rgba(255, 255, 255, 0.40);
+
+  /* Purple */
+  --color-purple: #1200d4;
+  --color-purple-75: rgba(21, 0, 255, 0.75);
+
+  /* Hard Task */
+  --color-hard-bg: #7F1D1D;
+  --color-hard-bg-selected: #6E1616;
+  --color-hard-text: #FF8787;
+  --color-hard-text-selected: #FFD8D8;
+
+  /* Medium Task */
+  --color-medium-bg: #97401D;
+  --color-medium-bg-selected: #9A3912;
+  --color-medium-text: #FFA86B;
+  --color-medium-text-selected: #FFDFC9;
+
+  /* Easy Task */
+  --color-easy-bg: #2E633A;
+  --color-easy-bg-selected: #245830;
+  --color-easy-text: #67D28F;
+  --color-easy-text-selected: #B3F0C9;
+
+  /* Filters */
+  --color-filter-text: #939393;
+  --color-filter-border: #393939;
+
+  /* Badge */
+  --color-badge-border-selected: #D2D2D2;
+
+  /* Tasks */
+  --color-task-border: #474E60;
+}
+
+/* -------------------
+   SEMANTICS
+   ------------------- */
+:root {
+  /* Backgrounds */
+  --bg-page: var(--color-black);
+  --bg-card: var(--color-card);
+  --bg-card-hover: var(--color-card-hover);
+  --bg-update-btn: var(--color-purple);
+
+  /* Difficulty — Default */
+  --badge-hard-bg: var(--color-hard-bg);
+  --badge-hard-text: var(--color-hard-text);
+  --badge-medium-bg: var(--color-medium-bg);
+  --badge-medium-text: var(--color-medium-text);
+  --badge-easy-bg: var(--color-easy-bg);
+  --badge-easy-text: var(--color-easy-text);
+
+  /* Difficulty — Selected */
+  --badge-hard-bg-selected: var(--color-hard-bg-selected);
+  --badge-hard-text-selected: var(--color-hard-text-selected);
+  --badge-medium-bg-selected: var(--color-medium-bg-selected);
+  --badge-medium-text-selected: var(--color-medium-text-selected);
+  --badge-easy-bg-selected: var(--color-easy-bg-selected);
+  --badge-easy-text-selected: var(--color-easy-text-selected);
+}
+
+/* -------------------
+   BORDER RADIUS
+   ------------------- */
+:root {
+  --radius-6: 0.6rem;
+  --radius-8: 0.8rem;
+  --radius-10: 1rem;
+  --radius-12: 1.2rem;
+  --radius-full: 99.9rem;
+}
+
+/* -------------------
+   SPACINGS
+   ------------------- */
+:root {
+  --sp-8: 0.8rem;
+  --sp-10: 1rem;
+  --sp-12: 1.2rem;
+  --sp-16: 1.6rem;
+  --sp-24: 2.4rem;
+  --sp-54: 5.4rem;
+}
+
+/* -------------------
+   FONT
+   ------------------- */
+
+  :root {
+  --font-family: 'Poppins', sans-serif;
+  --font-size-title: 2.4rem;
+  --font-size-body: 1.4rem;
+  --font-size-secondary: 1.2rem;
+  --font-size-small: 1rem;
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  }
