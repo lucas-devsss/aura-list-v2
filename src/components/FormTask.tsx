@@ -1,5 +1,12 @@
+
+
 function FormTask({handleSubmitForm, nameTask, handleSaveNameTask, handleSaveDifficulty}: {handleSubmitForm(): void, nameTask: string, handleSaveNameTask(e: string): void, handleSaveDifficulty(e: string): void}){
     return(
+        <>
+        <header>
+            <h1>Aplicação Tarefas</h1>
+        </header>
+
     <form className="task-form" onSubmit={(e) =>{
         e.preventDefault()
         handleSubmitForm()
@@ -14,6 +21,7 @@ function FormTask({handleSubmitForm, nameTask, handleSaveNameTask, handleSaveDif
             </fieldset>
             <input type="submit" className="task-form__button" value="Adicionar tarefa"/>
     </form>
+    </>
  )
 }
 
