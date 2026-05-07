@@ -3,3 +3,111 @@
     text-align: center;
     color: var(--color-white)
 }
+
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 var(--sp-24);
+    gap: var(--sp-10);
+}
+
+.input{
+    width: 100%;
+    padding: 0 var(--sp-8);
+    max-width: 67.5rem;
+    min-height: 4rem;
+    height: clamp(4rem, 2dvw, 5rem);
+    border-radius: var(--radius-10);
+    border: 2px solid var(--color-grey-light);
+    outline: none;
+    transition: 0.2s ease-in;
+    color: var(--color-white);
+    background-color: var(--color-grey-dark);
+    font-size: var(--font-size-body);
+    &:focus{
+     transition: 0.2s ease-out;
+        border-color: var(--color-purple);
+    }
+}
+
+.difficulty-container{
+    border: none;
+    padding: 0 var(--sp-10);
+    display: flex;
+    gap: 0.8rem;
+}
+
+.legend {
+  display: none;
+}
+
+.input-radio{
+    display: none;
+}
+
+.label{
+    color: white;
+}
+
+.badge-easy, .badge-medium, .badge-hard{
+    padding: 0.6rem 1.8rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    transition: 0.150s ease-in;
+    font-size: var(--font-size-secondary);
+    color: var(--color-white);
+    &:has(input[type="radio"]:checked){
+        border-color: var(--color-badge-border-selected);
+    }   
+    &:hover{
+        border-color: var(--color-white-50);
+    }
+}
+
+.badge-easy{
+    background-color: var(--badge-easy-bg);;
+    &:has(input[type="radio"]:checked){
+    background-color: var(--badge-easy-bg-selected);
+    color: var(--badge-easy-text-selected);
+    }
+}
+
+.badge-medium{
+    background-color: var(--badge-medium-bg);
+    &:has(input[type="radio"]:checked){
+    background-color: var(--badge-medium-bg-selected);
+    color: var(--badge-medium-text-selected);
+    }
+}
+
+.badge-hard{
+    background-color: var(--badge-hard-bg);
+    &:has(input[type="radio"]:checked){
+    background-color: var(--badge-hard-bg-selected);
+    color: var(--badge-hard-text-selected);
+    }
+}
+
+.btn-add-task{
+    padding: var(--sp-8) var(--sp-24);
+    border-radius: var(--radius-12);
+    outline: none;
+    background-color: var(--color-grey-dark);
+    color: var(--color-white);
+    border: 1px solid var(--color-grey-light);
+    font-size: var(--font-size-secondary);
+    cursor: pointer;
+    transition: 0.150s ease-in-out;
+    &:hover{
+        border-color: var(--color-purple);
+        transform: translateY(-0.3rem);
+    }
+    &:active{
+        transform: translateY(0.2rem);
+        filter: brightness(130%)
+    }
+}
+
+
