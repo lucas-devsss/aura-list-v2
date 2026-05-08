@@ -37,12 +37,12 @@ export function useTasks(){
       function handleChangeTask(nameTask: string): void{
         setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: taskEdit!.difficulty})
       }
-    
-      function handleUpdateTasks(tasks: Task[]){
-        setTasks(tasks)
+      
+      function handleUpdateTasks(){
+        setTasks(tasks.map(task => task.id === taskEdit!.id ? {...task, name: taskEdit!.name} : task))
         setModal(false)
       }
-    
+   
       function handleCloseModal(): void{
         setModal(false)
       }
