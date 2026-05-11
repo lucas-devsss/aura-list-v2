@@ -20,16 +20,16 @@ export function useTasks(){
         if(nameTask === ""){
           return
         }
-        setTasks(e => [...e, {id: tasks.length + 1, name: nameTask, difficulty: taskDifficulty}].sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]))
+        setTasks(e => [...e, {id: crypto.randomUUID(), name: nameTask, difficulty: taskDifficulty}].sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]))
         setNameTask("")
       }
     
-      function handleDeleteTask(id: number): void{
+      function handleDeleteTask(id: string): void{
         setTasks(prev => prev.filter(task => task.id !== id))
         setModal(false)
       }
     
-      function handleEditTask(idTask: number, nameTask: string, difficulty: Difficulty): void{
+      function handleEditTask(idTask: string, nameTask: string, difficulty: Difficulty): void{
         setTaskEdit({id: idTask, name: nameTask, difficulty: difficulty})
         setModal(true)
       }
