@@ -2,7 +2,7 @@ import type { Task } from "../../types/taskType"
 import styles from "./RenderTasks.module.css"
 
 import Modal from "../ModalEdit/Modal"
-    export default function RenderTasks({tasks, handleDeleteTask, modal, handleEditTask, editTask, handleChangeTask, handleUpdateTasks, handleCloseModal}: {tasks: Task[], handleDeleteTask(id: number): void, modal: boolean, handleEditTask(taskId: number, editName: string, difficulty: string): void, editTask: Task,  handleChangeTask(editName: string): void, handleUpdateTasks(): void, handleCloseModal(): void}){
+    export default function RenderTasks({tasks, handleDeleteTask, modal, handleEditTask, editTask, handleChangeTask, handleUpdateTasks, handleCloseModal}: {tasks: Task[], handleDeleteTask(id: string): void, modal: boolean, handleEditTask(taskId: string, editName: string, difficulty: string): void, editTask: Task,  handleChangeTask(editName: string): void, handleUpdateTasks(): void, handleCloseModal(): void}){
         return(
         <>        
         <ul className={styles["tasks-container"]}>
