@@ -1,0 +1,75 @@
+.modal{
+    width: 90%;
+    min-width: 30rem;
+    max-width: 37rem;
+    background-color: var(--bg-page);
+    border: 2px solid var(--color-grey-light);
+    border-radius: var(--radius-12);
+    padding: var(--sp-24);
+}
+
+.edit-actions{
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-bottom: var(--sp-24);
+}
+
+.labels{
+    color: var(--color-white-50);
+}
+
+.input{
+    width: 100%;
+    padding: 0 var(--sp-8);
+    min-height: 4rem;
+    height: clamp(4rem, 2dvw, 5rem);
+    border-radius: var(--radius-10);
+    border: 2px solid var(--color-grey-light);
+    outline: none;
+    transition: 0.2s ease-in;
+    color: var(--color-white);
+    background-color: var(--color-grey-dark);
+    font-size: var(--font-size-body);
+    &:focus{
+     transition: 0.2s ease-out;
+        border-color: var(--color-purple);
+    }
+}
+
+.buttons-edit{
+    display: flex;
+    justify-content: center;
+    gap: var(--sp-8);
+}
+
+.button{
+    padding: var(--sp-10);
+    color: var(--color-white);
+    border-radius: var(--radius-8);
+    cursor: pointer;
+    &:hover{
+        transform: translateY(-0.1rem);
+    }
+}
+
+.button-update{
+    background-color: var(--bg-update-btn);
+    border: none;
+    transition: 0.150s ease-in-out;
+    &:hover{
+        background-color: var(--color-purple-75);
+    }
+}
+
+.button-cancel{
+    border: 1px solid var(--color-white-50);
+    color: var(--color-white-50);
+    background-color: transparent;
+    transition: 0.150s ease-in-out;
+    &:hover{
+        color: var(--color-white-75);
+        border-color: var(--color-white-75);
+    }
+}
+

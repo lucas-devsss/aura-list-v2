@@ -1,5 +1,6 @@
 import { useEffect, useRef } from "react"
 import type { Task } from "../../types/taskType"
+import styles from "./Modal.module.css"
 
 export default function Modal({editTask, modal, handleChangeTask, handleUpdateTasks, handleCloseModal}: {editTask: Task, modal: boolean, handleChangeTask(editName: string): void, handleUpdateTasks(): void, handleCloseModal(): void}){
     const dialogRef = useRef<HTMLDialogElement | null>(null)
@@ -13,17 +14,17 @@ export default function Modal({editTask, modal, handleChangeTask, handleUpdateTa
     }, [modal])
     
     return(
-        <dialog ref={dialogRef}>
-                <div className="modal-edit__content">
-                    <label htmlFor="task-edit-input" className="modal-edit__label">Edite sua tarefa</label>
-                    <input type="text" value={editTask.name} onChange={(e) => handleChangeTask(e.currentTarget.value)}  name="task-edit-input" id="task-edit-input" className="modal-edit__input"/>
+        <dialog ref={dialogRef} className={styles.modal}>
+                <div className={styles["edit-actions"]}>
+                    <label htmlFor="task-edit-input" className={styles.labels}>Edite sua tarefa</label>
+                    <input type="text" value={editTask.name} onChange={(e) => handleChangeTask(e.currentTarget.value)}  name="task-edit-input" id="task-edit-input" className={styles.input}/>
                 </div>
             
-                <div className="modal-edit__actions">
-                    <button className="modal-edit__button--update modal-edit__button" onClick={() =>{
+                <div className={styles["buttons-edit"]}>
+                    <button className={`${styles.button} ${styles["button-update"]}`} onClick={() =>{
                     handleUpdateTasks()
                     }}>Atualizar</button>
-                    <button className="modal-edit__button--cancel modal-edit__button" onClick={handleCloseModal}>Cancelar</button>
+                    <button className={`${styles.button} ${styles["button-cancel"]}`} onClick={handleCloseModal}>Cancelar</button>
                 </div>
         </dialog>
     )
