@@ -12,3 +12,9 @@ export const difficultyWeight = {
   easy: 1
 } as const
 
+export const difficultyLabel = {
+  hard: "Difícil",
+  medium: "Médio",
+  easy: "Fácil"
+} as const
+
