@@ -19,10 +19,10 @@ export default function Modal({editTask, modal, handleChangeTask, handleUpdateTa
                     <label htmlFor="task-edit-input" className={styles.labels}>Edite sua tarefa</label>
                     <input type="text" value={editTask.name} onChange={(e) => handleChangeTask(e.currentTarget.value, editTask.difficulty)}  name="task-edit-input" id="task-edit-input" className={styles.input}/>
                     <fieldset className={styles["difficulty-container"]}>
-                    <legend className={styles.legend}></legend>
-                        <label htmlFor="dificilEdit" className={styles["badge-hard"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty)} name="editDificuldade" id="dificilEdit" value="hard"/>Difícil</label>
-                        <label htmlFor="medioEdit" className={styles["badge-medium"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty)} name="editDificuldade" id="medioEdit" value="medium"/>Médio</label>  
-                        <label htmlFor="facilEdit" className={styles["badge-easy"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty)} name="editDificuldade" id="facilEdit"  value="easy" />Fácil</label>
+                        <legend className={styles.legend}> Edite a dificuldade</legend>
+                        <label htmlFor="dificilEdit" className={styles["badge-hard"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty)} name="editDificuldade" id="dificilEdit" value="hard" defaultChecked={editTask.difficulty === "hard" && true}/>Difícil</label>
+                        <label htmlFor="medioEdit" className={styles["badge-medium"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty)} name="editDificuldade" id="medioEdit" value="medium" defaultChecked={editTask.difficulty === "medium" && true}/>Médio</label>  
+                        <label htmlFor="facilEdit" className={styles["badge-easy"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty)} name="editDificuldade" id="facilEdit"  value="easy" defaultChecked={editTask.difficulty === "easy" && true} />Fácil</label>
                     </fieldset> 
                 </div>
             

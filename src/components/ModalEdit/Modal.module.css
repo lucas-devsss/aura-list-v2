@@ -1,6 +1,6 @@
 .modal{
     width: 90%;
-    min-width: 30rem;
+    /* min-width: 30rem; */
     max-width: 37rem;
     background-color: var(--bg-page);
     border: 2px solid var(--color-grey-light);
@@ -15,7 +15,7 @@
     margin-bottom: var(--sp-24);
 }
 
-.labels{
+.labels, .legend{
     color: var(--color-white-50);
 }
 
@@ -70,6 +70,60 @@
     &:hover{
         color: var(--color-white-75);
         border-color: var(--color-white-75);
+    }
+}
+.difficulty-container{
+    padding: 0;
+    display: flex;
+    gap: 0.8rem;
+    border: none;
+    justify-content: space-between;
+}
+
+
+.input-radio{
+    display: none;
+}
+
+.badge-easy, .badge-medium, .badge-hard{
+    padding: 0.6rem 1.8rem;
+    border: 1px solid transparent;
+    border-radius: var(--radius-full);
+    cursor: pointer;
+    flex: 1;
+    transition: 0.150s ease-in;
+    font-size: var(--font-size-secondary);
+    color: var(--color-white);
+    text-align: center;
+    &:has(input[type="radio"]:checked){
+        border-color: var(--color-badge-border-selected);
+    }   
+    &:hover{
+        border-color: var(--color-white-50);
+    }
+}
+
+.badge-easy{
+    background-color: var(--badge-easy-bg);
+    &:has(input[type="radio"]:checked){
+    background-color: var(--badge-easy-bg-selected);
+    color: var(--badge-easy-text-selected);
+    }
+}
+
+.badge-medium{
+    background-color: var(--badge-medium-bg);
+    &:has(input[type="radio"]:checked){
+    background-color: var(--badge-medium-bg-selected);
+    color: var(--badge-medium-text-selected);
+    }
+}
+
+.badge-hard{
+    background-color: var(--badge-hard-bg);
+    &:has(input[type="radio"]:checked){
+    background-color: var(--badge-hard-bg-selected);
+    color: var(--badge-hard-text-selected);
     }
 }
 
