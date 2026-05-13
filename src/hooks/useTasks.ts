@@ -32,14 +32,15 @@ export function useTasks(){
       function handleEditTask(idTask: string, nameTask: string, difficulty: Difficulty): void{
         setTaskEdit({id: idTask, name: nameTask, difficulty: difficulty})
         setModal(true)
+        console.log(difficulty)
       }
     
-      function handleChangeTask(nameTask: string): void{
-        setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: taskEdit!.difficulty})
+      function handleChangeTask(nameTask: string, difficulty: Difficulty): void{
+        setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: difficulty})
       }
       
       function handleUpdateTasks(){
-        setTasks(tasks.map(task => task.id === taskEdit!.id ? {...task, name: taskEdit!.name} : task))
+        setTasks(tasks.map(task => task.id === taskEdit!.id ? {...task, name: taskEdit!.name, difficulty: taskEdit!.difficulty} : task))
         setModal(false)
       }
    
