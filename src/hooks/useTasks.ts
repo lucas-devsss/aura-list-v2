@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import type { Task, Difficulty } from "../types/taskType"
+import type { Task, Difficulty, Filter } from "../types/taskType"
 import { difficultyWeight } from "../types/taskType"
 import { saveLocalStorage, getLocalStorage } from "../storage/taskStorage"
 
@@ -10,7 +10,10 @@ export function useTasks(){
     const [modal, setModal] =useState<boolean>(false)
     const [taskEdit, setTaskEdit] = useState<Task | null> (null)
     const [taskDifficulty, setTaskDifficulty] = useState<Difficulty>("easy")
-    
+    const [activeFilter, setActiveFilter] = useState<Filter>("all")
+
+    const filteredTasks: Task[] = activeFilter === "all" ? tasks : tasks.filter(task => task.difficulty === activeFilter)
+
     useEffect(() =>{
       saveLocalStorage("tasks", tasks)
     }, [tasks])
@@ -55,6 +58,10 @@ export function useTasks(){
         setTaskDifficulty(e)
       }
 
+      function handleSelectFilter(filter: Filter){
+        setActiveFilter(filter)
+      }
 
-      return {handleSubmitForm, handleDeleteTask, handleEditTask, handleChangeTask, handleUpdateTasks, handleCloseModal, handleSaveNameTask, handleSaveDifficulty, tasks, nameTask, modal, taskEdit}
+
+      return {handleSubmitForm, handleDeleteTask, handleEditTask, handleChangeTask, handleUpdateTasks, handleCloseModal, handleSaveNameTask, handleSaveDifficulty, tasks, nameTask, modal, taskEdit, handleSelectFilter, filteredTasks}
 }
