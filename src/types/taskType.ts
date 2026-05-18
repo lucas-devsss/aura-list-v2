@@ -6,6 +6,8 @@ export interface Task{
 
 export type Difficulty = "easy" | "medium" | "hard"
 
+export type Filter = "all" | Difficulty
+
 export const difficultyWeight = {
   hard: 3,
   medium: 2,
