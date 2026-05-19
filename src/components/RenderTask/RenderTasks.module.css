@@ -65,3 +65,42 @@
      background-color: var(--badge-easy-bg);
 }
 
+.filter-container{
+    padding: 0;
+    margin-bottom: 0.6rem;
+    border: none;
+    width: 100%;
+    max-width: 67.5rem;
+    display: flex;
+    gap: 0.8rem;
+    justify-content: left;
+    overflow: auto;
+    min-width: 0;
+}
+
+.legend {
+  display: none;
+}
+
+.input-radio{
+    display: none;
+}
+
+.label-filter{
+    padding: 0.8rem var(--sp-16);
+    border: 1px solid var(--color-filter-border);
+    border-radius: var(--radius-12);
+    cursor: pointer;
+    transition: 0.150s ease-in;
+    font-size: var(--font-size-secondary);
+    color: var(--color-filter-text);
+    flex-shrink: 0;
+    &:has(input[type="radio"]:checked){
+        border-color: var(--color-purple);
+        color: var(--color-white)
+    }   
+    &:hover{
+        border-color: var(--color-purple-75);
+        color: var(--color-white-75);
+    }
+}

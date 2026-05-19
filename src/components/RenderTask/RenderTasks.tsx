@@ -8,11 +8,11 @@ export default function RenderTasks({tasks, handleDeleteTask, modal, handleEditT
     <ul className={styles["tasks-container"]}>
 
     <fieldset className={styles["filter-container"]}>
-        <legend className={styles.legend}></legend>
-        <label htmlFor="allFilter"><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="allFilter" value="all" defaultChecked/>Todos ({tasks.length})</label>
-        <label htmlFor="hardFilter"><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="hardFilter" value="hard"/>Difícil</label>
-        <label htmlFor="mediumFilter"><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="mediumFilter"  value="medium"/>Médio</label>  
-        <label htmlFor="easyFilter"><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="easyFilter" value="easy"/>Fácil</label>
+        <legend className={styles.legend} aria-label="Filtros de tarefas"></legend>
+        <label htmlFor="allFilter" className={styles["label-filter"]}><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="allFilter" value="all" defaultChecked/>Todos ({tasks.length})</label>
+        <label htmlFor="hardFilter" className={styles["label-filter"]}><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="hardFilter" value="hard"/>Difícil</label>
+        <label htmlFor="mediumFilter" className={styles["label-filter"]}><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="mediumFilter"  value="medium"/>Médio</label>  
+        <label htmlFor="easyFilter" className={styles["label-filter"]}><input type="radio" className={styles["input-radio"]} name="difficultyFilter" onChange={e => handleSelectFilter(e.currentTarget.value as Filter)} id="easyFilter" value="easy"/>Fácil</label>
     </fieldset>
 
     {filteredTasks.map(a => {
