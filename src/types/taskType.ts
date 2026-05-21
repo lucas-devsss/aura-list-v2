@@ -1,7 +1,8 @@
 export interface Task{
   id: string,
   name: string,
-  difficulty: Difficulty
+  difficulty: Difficulty,
+  completed: boolean
 }
 
 export type Difficulty = "easy" | "medium" | "hard"
