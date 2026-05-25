@@ -12,7 +12,17 @@ export function useTasks(){
     const [taskDifficulty, setTaskDifficulty] = useState<Difficulty>("easy")
     const [activeFilter, setActiveFilter] = useState<Filter>("all")
 
-    const filteredTasks: Task[] = activeFilter === "all" ? tasks : tasks.filter(task => task.difficulty === activeFilter)
+    let filteredTasks: Task[] = []
+
+    if(activeFilter === "all"){
+      filteredTasks = tasks
+    }else if(activeFilter === "easy" || activeFilter === "medium" || activeFilter === "hard"){
+      filteredTasks = tasks.filter(task => task.difficulty === activeFilter)
+    }else if(activeFilter === "completed"){
+      filteredTasks = tasks.filter(task => task.completed === true)
+    }else if(activeFilter === "pending"){
+      filteredTasks = tasks.filter(task => task.completed === false)
+    }
 
     useEffect(() =>{
       saveLocalStorage("tasks", tasks)
