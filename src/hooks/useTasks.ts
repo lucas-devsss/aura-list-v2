@@ -23,7 +23,7 @@ export function useTasks(){
         if(nameTask === ""){
           return
         }
-        setTasks(e => [...e, {id: crypto.randomUUID(), name: nameTask, difficulty: taskDifficulty}].sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]))
+        setTasks(e => [...e, {id: crypto.randomUUID(), name: nameTask, difficulty: taskDifficulty, completed: false}].sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]))
         setNameTask("")
       }
     
@@ -32,13 +32,13 @@ export function useTasks(){
         setModal(false)
       }
     
-      function handleEditTask(idTask: string, nameTask: string, difficulty: Difficulty): void{
-        setTaskEdit({id: idTask, name: nameTask, difficulty: difficulty})
+      function handleEditTask(idTask: string, nameTask: string, difficulty: Difficulty, completed: boolean): void{
+        setTaskEdit({id: idTask, name: nameTask, difficulty: difficulty, completed: completed})
         setModal(true)
       }
     
-      function handleChangeTask(nameTask: string, difficulty: Difficulty): void{
-        setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: difficulty})
+      function handleChangeTask(nameTask: string, difficulty: Difficulty, completed: boolean): void{
+        setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: difficulty, completed: completed})
       }
       
       function handleUpdateTasks(){
@@ -62,6 +62,9 @@ export function useTasks(){
         setActiveFilter(filter)
       }
 
+      function handleCompleteTask(task: Task){
+        setTasks(tasks.map(taskState => taskState.id === task!.id ? {...task, completed: !task.completed} : taskState).sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]))
+      }
 
-      return {handleSubmitForm, handleDeleteTask, handleEditTask, handleChangeTask, handleUpdateTasks, handleCloseModal, handleSaveNameTask, handleSaveDifficulty, tasks, nameTask, modal, taskEdit, handleSelectFilter, filteredTasks}
+      return {handleSubmitForm, handleDeleteTask, handleEditTask, handleChangeTask, handleUpdateTasks, handleCloseModal, handleSaveNameTask, handleSaveDifficulty, tasks, nameTask, modal, taskEdit, handleSelectFilter, filteredTasks, handleCompleteTask }
 }

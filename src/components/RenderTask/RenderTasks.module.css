@@ -65,6 +65,15 @@
      background-color: var(--badge-easy-bg);
 }
 
+.task-completed{
+    opacity: 50%;
+    text-decoration:line-through;
+}
+
+.check-completed{
+    color: var(--color-easy-text)
+}
+
 .filter-container{
     padding: 0;
     margin-bottom: 0.6rem;
