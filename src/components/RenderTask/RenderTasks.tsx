@@ -1,8 +1,10 @@
 import { difficultyLabel, type Difficulty, type Filter, type Task } from "../../types/taskType"
 import styles from "./RenderTasks.module.css"
 import Modal from "../ModalEdit/Modal"
+import type { Toast } from "../../types/toastType"
+import { ToastNot } from "../Toast/Toast"
 
-export default function RenderTasks({tasks, handleDeleteTask, modal, handleEditTask, editTask, handleChangeTask, handleUpdateTasks, handleCloseModal, filteredTasks, handleSelectFilter, handleCompleteTask}: {tasks: Task[], handleDeleteTask(id: string): void, modal: boolean, handleEditTask(taskId: string, editName: string, difficulty: Difficulty, completed: boolean): void, editTask: Task,  handleChangeTask(editName: string, difficulty: Difficulty, completed: boolean): void, handleUpdateTasks(): void, handleCloseModal(): void, filteredTasks: Task[], handleSelectFilter(filter: Filter): void, handleCompleteTask(task: Task): void}){
+export default function RenderTasks({tasks, handleDeleteTask, modal, handleEditTask, editTask, handleChangeTask, handleUpdateTasks, handleCloseModal, filteredTasks, handleSelectFilter, handleCompleteTask, isActive, toast}: {tasks: Task[], handleDeleteTask(id: string): void, modal: boolean, handleEditTask(taskId: string, editName: string, difficulty: Difficulty, completed: boolean): void, editTask: Task,  handleChangeTask(editName: string, difficulty: Difficulty, completed: boolean): void, handleUpdateTasks(): void, handleCloseModal(): void, filteredTasks: Task[], handleSelectFilter(filter: Filter): void, handleCompleteTask(task: Task): void, isActive: boolean, toast: Toast | null}){
     return(
     <>        
     <ul className={styles["tasks-container"]}>
@@ -23,6 +25,8 @@ export default function RenderTasks({tasks, handleDeleteTask, modal, handleEditT
         })}
     </ul>
         {modal ? <Modal modal={modal} editTask={editTask} handleChangeTask={handleChangeTask} handleUpdateTasks={handleUpdateTasks} handleCloseModal={handleCloseModal}  /> : ""}
+        {isActive ? <ToastNot toast={toast ?? null}/>: ""}
+        {/* {isActive ? console.log(true) : console.log(false)} */}
     </>
     )
 }
