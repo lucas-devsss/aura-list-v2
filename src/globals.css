@@ -99,6 +99,12 @@ body {
   --badge-medium-text-selected: var(--color-medium-text-selected);
   --badge-easy-bg-selected: var(--color-easy-bg-selected);
   --badge-easy-text-selected: var(--color-easy-text-selected);
+  
+  /* Toasts */
+  --toast-error-bg: var(--color-hard-bg);
+  --toast-error-text: var(--color-hard-text);
+  --toast-success-bg: var(--color-easy-bg);
+  --toast-success-text: var(--color-easy-text);
 }
 
 /* -------------------

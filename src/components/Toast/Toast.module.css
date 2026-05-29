@@ -1,6 +1,26 @@
-.div{
-    width: 500px;
-    height: 500px;
-    background-color: grey;
-    color: white;
+.toast {
+  position: fixed;
+  bottom: 2.4rem;
+  right: 2.4rem;
+  padding: var(--sp-12) var(--sp-16);
+  border-radius: var(--radius-8);
+  font-size: var(--font-size-small);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-white);
+  min-width: 24rem;
+  max-width: 36rem;
+  border: 0.5px solid transparent;
+  z-index: 1000;
+}
+
+.toast-error {
+  background-color: var(--toast-error-bg);
+  border-color: var(--toast-error-text);
+  color: var(--toast-error-text);
+}
+
+.toast-success {
+  background-color: var(--toast-success-bg);
+  border-color: var(--toast-success-text);
+  color: var(--toast-success-text);
 }

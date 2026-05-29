@@ -3,9 +3,8 @@ import styles from"./Toast.module.css"
 
 export function ToastNot({toast}: {toast: Toast | null}){
     return(
-        <div className={styles.div}>
-            <p>Tipo do erro {toast!.type}</p>
-            <p>Mensagem de erro {toast!.message}</p>
-        </div>
+        <div className={`${styles.toast} ${toast?.type === "error" ? styles["toast-error"] : styles["toast-success"]}`}>
+  <p>{toast?.message}</p>
+</div>
     )
 }
