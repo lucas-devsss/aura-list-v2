@@ -7,15 +7,21 @@ export function useToast(){
     const [toast, setToast] = useState<Toast | null>(null)
     
     useEffect(() =>{
-        setTimeout(() => {
-            setIsActive(prev => !prev)
-        }, 1500);
-    }, [toast])
+        if(!isActive){
+            return
+        }
+        const timer = setTimeout(() => {
+            setIsActive(false)
+            setToast(null)
+        }, 3000)
+
+        return () => clearTimeout(timer)
+    }, [isActive])
 
     function handleCreateToast(toast: Toast){
-        setIsActive(prev => !prev)
+        setIsActive(true)
         setToast(toast)
-        console.log("tá funcionando")
+     
     }
 
     return {toast, isActive, handleCreateToast}
