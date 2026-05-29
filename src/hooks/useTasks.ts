@@ -53,9 +53,12 @@ export function useTasks(handleCreateToast: (toast: Toast) => void){
         setTaskEdit({id: taskEdit!.id, name: nameTask, difficulty: difficulty, completed: completed})
       }
       
-      function handleUpdateTasks(){
+      function handleUpdateTasks(nameTask: string){
         if(taskEdit?.name === ""){
           handleCreateToast({id: crypto.randomUUID(), message: "O nome da tarefa não pode ser vazio", type: "error"})
+          return
+        }else if(taskEdit?.name === nameTask){
+          handleCreateToast({id: crypto.randomUUID(), message: "Altere o nome da tarefa para salvar", type: "error"})
           return
         }
         setTasks(tasks.map(task => task.id === taskEdit!.id ? {...task, name: taskEdit!.name, difficulty: taskEdit!.difficulty} : task).sort((a, b) => difficultyWeight[b.difficulty] - difficultyWeight[a.difficulty]))

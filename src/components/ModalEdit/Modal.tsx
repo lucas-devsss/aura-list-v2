@@ -2,9 +2,10 @@ import { useEffect, useRef } from "react"
 import type { Difficulty, Task } from "../../types/taskType"
 import styles from "./Modal.module.css"
 
-export default function Modal({editTask, modal, handleChangeTask, handleUpdateTasks, handleCloseModal}: {editTask: Task, modal: boolean, handleChangeTask(editName: string, difficulty: Difficulty, completed: boolean): void, handleUpdateTasks(): void, handleCloseModal(): void}){
+export default function Modal({editTask, modal, handleChangeTask, handleUpdateTasks, handleCloseModal}: {editTask: Task, modal: boolean, handleChangeTask(editName: string, difficulty: Difficulty, completed: boolean): void, handleUpdateTasks(nameTask: string): void, handleCloseModal(): void}){
     const dialogRef = useRef<HTMLDialogElement | null>(null)
-    
+    const nameTask = useRef(editTask.name)
+
     useEffect(() =>{
         if(modal){
             dialogRef.current?.showModal()
@@ -25,10 +26,10 @@ export default function Modal({editTask, modal, handleChangeTask, handleUpdateTa
                         <label htmlFor="facilEdit" className={styles["badge-easy"]}><input type="radio" className={styles["input-radio"]} onChange={(e) => handleChangeTask(editTask.name, e.currentTarget.value as Difficulty, editTask.completed)} name="editDificuldade" id="facilEdit"  value="easy" defaultChecked={editTask.difficulty === "easy"} />Fácil</label>
                     </fieldset> 
                 </div>
-            
+                
                 <div className={styles["buttons-edit"]}>
                     <button className={`${styles.button} ${styles["button-update"]}`} onClick={() =>{
-                    handleUpdateTasks()
+                    handleUpdateTasks(nameTask.current)
                     }}>Atualizar</button>
                     <button className={`${styles.button} ${styles["button-cancel"]}`} onClick={handleCloseModal}>Cancelar</button>
                 </div>
