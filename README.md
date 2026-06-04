@@ -21,14 +21,15 @@ novas funcionalidades e um design completamente reformulado.
 🔗 **[Acesse o projeto](https://aura-list-v2.vercel.app/)**
 
 ---
-## Preview no Desktop
+## 🖥️ Preview
 
-<img width="1593" height="718" alt="image" src="https://github.com/user-attachments/assets/3d3e9e1c-8176-43c3-8868-827556c6b0b8" />
+**Desktop**
 
-## Preview no Mobile
+![Preview Desktop](./screenshots/desktop%20preview.webp)
 
-<img width="250" height="649" alt="image" src="https://github.com/user-attachments/assets/0c009ec8-569b-40a4-a2db-36e50d2185af" />
+**Mobile**
 
+![Preview Mobile](./screenshots/mobile%20preview.webp)
 
 ---
 
