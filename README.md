@@ -159,7 +159,7 @@ e não gerenciam lógica própria.
 
 Clone o repositório:
 ```bash
-git clone https://github.com/Caio-Dev0/aura-list-v2
+git clone https://github.com/[seu-nome]/aura-list-v2
 ```
 
 Instale as dependências dentro do projeto:
